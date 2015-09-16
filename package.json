@@ -1,0 +1,21 @@
+{
+  "name": "@briefly/plug",
+  "version": "1.0.0",
+  "description": "WebSocket server uesd for Object Notifications at Briefly",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --use_strict src/index"
+  },
+  "author": "Alexander Christie <alex@briefly.io>",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^1.2.0",
+    "jsonwebtoken": "^5.0.5",
+    "primus": "^3.2.3",
+    "sockjs": "^0.3.15"
+  }
+}
