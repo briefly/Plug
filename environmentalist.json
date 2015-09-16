@@ -1,0 +1,12 @@
+[
+    {
+        "name": "JWT_SECRET",
+        "description": "Auth0 shared secret used to verify tokens.",
+        "required": true
+    },
+    {
+        "name": "PORT_NUMBER",
+        "description": "The port used to expose the websocket on.",
+        "required": true
+    }
+]
