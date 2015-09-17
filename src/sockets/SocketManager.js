@@ -31,6 +31,9 @@ class SocketManager {
 
         // Bind the handler to the primus connect event
         this.primus.on('connection', this.handleInboundConnection)
+        this.primus.on('connection', function(spark) {
+            console.log(spark)
+        })
 
     }
 

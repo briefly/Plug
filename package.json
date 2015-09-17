@@ -2,7 +2,7 @@
   "name": "@briefly/plug",
   "version": "1.0.0",
   "description": "WebSocket server uesd for Object Notifications at Briefly",
-  "main": "index.js",
+  "main": "src/index.js",
   "directories": {
     "test": "tests"
   },
@@ -13,9 +13,12 @@
   "author": "Alexander Christie <alex@briefly.io>",
   "license": "ISC",
   "dependencies": {
+    "ampere": "^1.0.0",
     "dotenv": "^1.2.0",
     "jsonwebtoken": "^5.0.5",
+    "node-redis-pubsub": "^0.6.0",
     "primus": "^3.2.3",
-    "sockjs": "^0.3.15"
+    "sockjs": "^0.3.15",
+    "underscore": "^1.8.3"
   }
 }
