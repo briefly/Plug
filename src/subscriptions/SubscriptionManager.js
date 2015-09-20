@@ -89,7 +89,7 @@ class SubscriptionManager {
     handleUpdate (channel, data) {
 
         data = JSON.parse(data)
-        console.log(data)
+        
         // Check that the data has been received okay
         if ( typeof data.id === 'string' ) {
 
