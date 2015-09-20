@@ -7,7 +7,7 @@
  */
 
 let _ = require('underscore' ),
-    NRP = require('node-redis-pubsub')
+    Redis = require( 'ioredis' )
 
 /**
  * The SubscriptionManager is designed to store a reference to all objects of interest tied to attached streams.
@@ -25,14 +25,18 @@ class SubscriptionManager {
         this.handleUpdate = this.handleUpdate.bind(this)
 
         // Establish a Node Redis PubSub connection to monitor for update
-        this.nrp = new NRP({
-            port: process.env.REDIS_PORT || 10677,
+        this.redis = new Redis({
+            port: process.env.REDIS_PORT,
             host: process.env.REDIS_HOST,
-            auth: process.env.REDIS_AUTH,
-            scope: process.env.REDIS_SCOPE
+            password: process.env.REDIS_AUTH
         })
 
-        this.nrp.on('object-update', this.handleUpdate)
+        this.redis.on('message', this.handleUpdate)
+        this.redis.subscribe('object-update', function(err) {
+            if ( err ) {
+                throw err
+            }
+        })
 
     }
 
@@ -82,8 +86,10 @@ class SubscriptionManager {
     /**
      * Process an update on a watched object
      */
-    handleUpdate (data, channel) {
+    handleUpdate (channel, data) {
 
+        data = JSON.parse(data)
+        console.log(data)
         // Check that the data has been received okay
         if ( typeof data.id === 'string' ) {
 
