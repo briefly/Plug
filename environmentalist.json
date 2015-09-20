@@ -7,7 +7,8 @@
     {
         "name": "PORT_NUMBER",
         "description": "The port used to expose the websocket on.",
-        "required": true
+        "required": true,
+        "default": 9090
     },
     {
         "name": "REDIS_PORT",
@@ -23,11 +24,6 @@
     {
         "name": "REDIS_AUTH",
         "description": "The authentication type used to connect to redis",
-        "required": true
-    },
-    {
-        "name": "REDIS_SCOPE",
-        "description": "Unique scope name to avoid NRP crossovers",
         "required": true
     }
 ]
