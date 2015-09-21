@@ -1,0 +1,29 @@
+[
+    {
+        "name": "JWT_SECRET",
+        "description": "Auth0 shared secret used to verify tokens.",
+        "required": true
+    },
+    {
+        "name": "PORT_NUMBER",
+        "description": "The port used to expose the websocket on.",
+        "required": true,
+        "default": 9090
+    },
+    {
+        "name": "REDIS_PORT",
+        "description": "Port used to connect to Redis",
+        "required": false,
+        "default": 10677
+    },
+    {
+        "name": "REDIS_HOST",
+        "description": "The hostname to connect to redis on",
+        "required": true
+    },
+    {
+        "name": "REDIS_AUTH",
+        "description": "The authentication type used to connect to redis",
+        "required": true
+    }
+]
