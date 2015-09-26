@@ -36,35 +36,8 @@ class SocketManager {
 
     authenticateConnection (req, done) {
 
-        // First validate that the incoming request has a JWT query token
-
-        if ( typeof req.query.jwt !== "string" ) {
-            done({
-                statusCode: 401,
-                message: 'Authentication Failed: No token provided'
-            })
-        }
-
-        // Once we have verified that a jwt was provided, attempt to verify its integrity
-        try {
-
-            var result = JWTlib.verify(
-                req.query.jwt,
-                new Buffer(process.env.JWT_SECRET, 'base64'),
-                { algorithms: ["HS256"] }
-            )
-
-            done(null, result)
-
-        } catch (err) {
-
-            done({
-                statusCode: 401,
-                message: 'Authentication Failed: Token Invalid'
-            })
-
-        }
-
+        // Spark is not an authenticated service
+        done(null)
 
     }
 
